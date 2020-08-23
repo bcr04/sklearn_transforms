@@ -95,6 +95,8 @@ class process_data2(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         df = X.copy()
+        print(X.columns)
+        print(X.head(5))
         # remove NA where PERFIL = HUMANAS. (strange correspondency)
         df.drop(df[(df.NOTA_GO.isnull()) & (df.PERFIL == 'HUMANAS')].index, inplace=True)
 
