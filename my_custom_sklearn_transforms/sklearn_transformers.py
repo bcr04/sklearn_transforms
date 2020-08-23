@@ -27,7 +27,7 @@ class process_data(BaseEstimator, TransformerMixin):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         df = X.copy()
         # remove NA where PERFIL = HUMANAS. (strange correspondency)
-        #df.drop(df[(df.NOTA_GO.isnull()) & (df.PERFIL == 'HUMANAS')].index, inplace=True)
+        df.drop(df[(df.NOTA_GO.isnull()) & (df.PERFIL == 'HUMANAS')].index, inplace=True)
 
         # some values are out of range. Changing to max allowed value.
         cols = ["NOTA_MF"]
@@ -92,12 +92,10 @@ class process_data2(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
 
-    def transform(self, X,y):
+    def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         df = X.copy()
-        df['PERFIL']=y.copy()
-        print(X.columns)
-        print(X.head(5))
+        # df['PERFIL']=y.copy()
         # remove NA where PERFIL = HUMANAS. (strange correspondency)
         df.drop(df[(df.NOTA_GO.isnull()) & (df.PERFIL == 'HUMANAS')].index, inplace=True)
 
