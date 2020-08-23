@@ -13,7 +13,7 @@ setup(
       author_email='',
       license='BSD',
       packages=[
-            'my_custom_sklearn_transforms_maratona_IBM_desafio_02'
+            'my_custom_sklearn_transforms'
       ],
       zip_safe=False
 )
